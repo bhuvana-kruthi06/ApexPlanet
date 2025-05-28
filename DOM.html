@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM manipulation</title>
+    <style>
+            body {
+            font-family: Arial, sans-serif;
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            background-color: #f5f5f5;
+    }
+        #sample, #todo-section{
+           padding: 20px;
+            background: #f5f5f5;;
+             margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+             display: grid;
+            width: 100%;
+            max-width: 400px;
+        }
+         input, select {
+         width: 100%;
+         padding: 10px;
+         margin: 6px 0 12px;
+         border: 1px solid #ccc;
+         border-radius: 5px;
+         }
+         input[type="submit"], input[type="reset"] {
+          width: 48%;
+          margin-right: 4%;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          cursor: pointer;
+    }
+
+        input[type="reset"] {
+      background-color: #f44336;
+    }
+        li{
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            align-items: center;
+        }
+          ul {
+            list-style-type: none;
+            padding-left: 0;
+    }
+          .remove-btn {
+           background: red;
+           color: white;
+           border: none;
+           padding: 5px 8px;
+           border-radius: 4px;
+           cursor: pointer;
+    }
+  </style>
+    </style><script>
+            function Validation(){
+            const name = document.forms["MyForm"]["name"].value;
+            const gender = document.forms["MyForm"]["gender"].value;
+            const email = document.forms["MyForm"]["email"].value;
+            const Password = document.forms["MyForm"]["pwd"].value;
+            const number = document.forms["MyForm"]["number"].value;
+            if(name === ""){
+            alert("Please enter your name.");
+           return false;
+         }
+            if(email === ""|| !email.includes('@')|| !email.includes('.')){
+               alert('Invalid email address!');
+            return false;
+        }
+            if(Password.length < 6){
+                alert("Password must contain atleast 6 characters");
+           return false;
+         }
+         if(number.length !== 10|| isNaN(number)){
+                alert("Phone number must contain 10 digits")
+                return false;
+            }
+
+      addToList(name, email, number);
+      document.forms["MyForm"].reset();
+      return false; // Prevent page refresh
+        }
+    function addToList(name, email, phone) {
+      const li = document.createElement("li");
+      li.textContent = `Name: ${name}, Email: ${email}, Phone: ${phone}`;
+
+      const btn = document.createElement("button");
+      btn.textContent = "Remove";
+      btn.className = "remove-btn";
+      btn.onclick = () => li.remove();
+
+      li.appendChild(btn);
+      document.getElementById("taskList").appendChild(li);
+    }
+        </script>
+</head>
+<body>
+    <div id="sample">
+        <h1 style="text-align: center;">FORM VALIDATION</h1>
+        <form name="MyForm" onsubmit="return Validation()">
+            Name: <input type="text" name="name"><br><br>
+            Gender: <select name="gender">
+               <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                 <option value="Others">Others</option>
+            </select><br><br>
+            Email: <input type="text" name="email"><br><br>
+            Password: <input type="password" name="pwd"><br><br> 
+             Phone Number: <input type="text" name="number"><br><br>
+                 <input type="submit" value="Submit">  <input type="reset" value="Reset"><br><br>
+        </form>
+    </div> 
+    <div id="todo-section">
+        <h1 style="text-align: center;"><b>USER ENTRIES</b></h1>
+        <ul id="taskList"></ul>
+    </div>
+</body>
+</html>
+
