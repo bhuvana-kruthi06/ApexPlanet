@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyShopfolio</title>
+  <style>
+    body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9;
+  color: #333;
+}
+
+header {
+  text-align: center;
+  padding: 2rem;
+  background: #000;
+  color: #fff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.card h2 {
+  margin: 1rem 0 0.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #222;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+  </style></head>
+<body>
+  <header>
+    <h1>🛍️ MyShopfolio</h1>
+    <p>Your Personal Project Storefront</p>
+  </header>
+
+  <main class="grid">
+    <div class="card">
+      <img src="assets/images/todo.jpg" alt="To-Do App">
+      <h2>To-Do Manager</h2>
+      <p>Task organizer with a modern UI</p>
+      <a href="projects/todo/index.html" class="btn">View Project</a>
+    </div>
+    <div class="card">
+      <img src="assets/images/blog.jpg" alt="Blog Project">
+      <h2>MyBlog</h2>
+      <p>Minimalist personal blogging template</p>
+      <a href="projects/blog/index.html" class="btn">View Project</a>
+    </div>
+    <div class="card">
+      <img src="assets/images/ecommerce.jpg" alt="Ecommerce Project">
+      <h2>ShopXpress</h2>
+      <p>Simple e-commerce layout with cart</p>
+      <a href="projects/ecommerce/index.html" class="btn">View Project</a>
+    </div>
+  </main>
+</body>
+</html>
